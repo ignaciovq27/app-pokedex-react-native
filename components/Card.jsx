@@ -3,18 +3,24 @@ import { useEffect, useRef } from "react";
 import { StyleSheet, Text, View, Image, Animated } from "react-native";
 
 export default function Card({ pokemon }) {
-  const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+  const capitalizeFirstLetter = (str) =>
+    str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
     <View key={pokemon.id} style={styles.card}>
       <View style={styles.imageContainer}>
-        <Image resizeMode="contain" source={{ uri: pokemon.sprite }} style={styles.sprite} />
+        <Image
+          resizeMode="contain"
+          source={{ uri: pokemon.sprite }}
+          style={styles.sprite}
+        />
       </View>
       <View style={styles.info}>
         <Text style={styles.title}>{capitalizeFirstLetter(pokemon.name)}</Text>
         <Text style={styles.id}>#{pokemon.id}</Text>
-        <Text style={styles.type}>{pokemon.types.map(capitalizeFirstLetter).join(" - ")}</Text>
-
+        <Text style={styles.type}>
+          {pokemon.types.map(capitalizeFirstLetter).join(" - ")}
+        </Text>
       </View>
     </View>
   );
