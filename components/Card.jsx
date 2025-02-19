@@ -82,6 +82,6 @@ const styles = StyleSheet.create({
 
   type: {
     fontSize: 14,
-    color: "#444",
+    color: "#442",
   },
 });
