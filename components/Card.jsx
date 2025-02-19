@@ -14,6 +14,7 @@ export default function Card({ pokemon }) {
         <Text style={styles.title}>{capitalizeFirstLetter(pokemon.name)}</Text>
         <Text style={styles.id}>#{pokemon.id}</Text>
         <Text style={styles.type}>{pokemon.types.map(capitalizeFirstLetter).join(" - ")}</Text>
+
       </View>
     </View>
   );
