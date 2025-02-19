@@ -4,7 +4,7 @@ import { ScreenContent } from "components/ScreenContent";
 //REACT
 
 //CSS
-import "./global.css";
+// import "./global.css";
 
 //COMPONENTS EXPO
 import { StatusBar } from "expo-status-bar";
@@ -31,7 +31,7 @@ export default function App() {
       {/* <StatusBar style="auto" /> */}
       <View style={styles.container}>
         <StatusBar style="light" />
-        <Main />
+        {/* <Main /> */}
         {/* <Button title="Press me" onPress={() => alert("Button pressed")} /> */}
         {/* <Pressable
         onPress={() => {

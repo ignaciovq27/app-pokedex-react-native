@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 //COMPONENTS REACT-NATIVE
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { View } from "react-native";
 import { ActivityIndicator } from "react-native";
 // import { ScrollView } from "react-native";
@@ -41,7 +41,7 @@ export function Main() {
         //   ))}
         // </ScrollView>
         <>
-          <View style={{ height: 40, padding: 6, backgroundColor: "#E0E0E0" }}>
+          <View className="bg-red-500 h-10 py-1">
             <Logo />
           </View>
 
@@ -62,6 +62,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center", // Centra elr contenido verticalmente
     // alignItems: "center",      // Centra el contenido horizontalmente
+    width: "100%",
+
   },
   scrollViewContainer: {
     alignItems: "center",
@@ -71,6 +73,7 @@ const styles = StyleSheet.create({
   flatListContainer: {
     alignItems: "center",
     paddingTop: 14,
+    width: "100%",
     // paddingHorizontal: 16,
   },
 });
