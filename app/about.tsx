@@ -7,10 +7,6 @@ import { HomeIcon } from "components/Icons";
 
 export default function About() {
 
-  const getOpacityStyle = (pressed: boolean) => ({
-    opacity: pressed ? 0.5 : 1,
-  });
-
   return (
     <View className="w-full" style={styles.container}>
 
@@ -18,20 +14,17 @@ export default function About() {
         <Text className="text-blue-500" style={styles.title}>About</Text>
       </View>
 
-      <View className="w-full">
-        <Link href="/" asChild className="w-full bg-gray-400">
-          <Pressable className="w-full flex flex-row items-center justify-center gap-2 p-1">
-            {({ pressed }) => (
-              <>
-                {/* <Text className="text-center text-white font-bold" style={{ opacity: pressed ? 0.5 : 1 }} >Home</Text>
+      <View className=" bg-gray-400 w-full">
+        <View className="items-center justify-center">
+          <Link href="/" asChild className="w-28">
+            <Pressable className="flex flex-row items-center justify-center gap-2 p-1 active:opacity-70">
+              {/* <Text className="text-center text-white font-bold" style={{ opacity: pressed ? 0.5 : 1 }} >Home</Text>
                 <HomeIcon style={{ opacity: pressed ? 0.5 : 1 }} /> */}
-
-                <Text className="text-center text-white font-bold" style={getOpacityStyle(pressed)}>Home</Text>
-                <HomeIcon style={getOpacityStyle(pressed)} />
-              </>
-            )}
-          </Pressable>
-        </Link>
+              <Text className="text-center text-white font-bold ">Home</Text>
+              <HomeIcon />
+            </Pressable>
+          </Link>
+        </View>
       </View>
     </View>
   );

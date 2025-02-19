@@ -7,7 +7,7 @@ import "../global.css";
 export default function Layout() {
     return (
         <View className="flex-1" style={styles.container}>
-            <Text className="text-blue-500 px-2 text-center">_Layout </Text>
+            {/* <Text className="text-blue-500 px-2 text-center">_Layout </Text> */}
             <View className="flex-1" style={styles.container}>
                 <Slot />
             </View>

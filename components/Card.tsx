@@ -1,32 +1,45 @@
 //COMPONENTS REACT-NATIVE
+import { Link } from "expo-router";
 import { useEffect, useRef } from "react";
-import { StyleSheet, Text, View, Image, Animated } from "react-native";
+import { StyleSheet, Text, View, Image, Animated, Pressable } from "react-native";
 
-export default function Card({ pokemon }) {
-  const capitalizeFirstLetter = (str) =>
+interface Pokemon {
+  id: number;
+  name: string;
+  sprite: string;
+  types: string[];
+}
+
+
+export default function Card({ pokemon }: { pokemon: Pokemon }) {
+  const capitalizeFirstLetter = (str: string) =>
     str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
-    <View key={pokemon.id} style={styles.card}>
-      <View style={styles.imageContainer}>
-        <Image
-          resizeMode="contain"
-          source={{ uri: pokemon.sprite }}
-          style={styles.sprite}
-        />
-      </View>
-      <View style={styles.info}>
-        <Text style={styles.title}>{capitalizeFirstLetter(pokemon.name)}</Text>
-        <Text style={styles.id}>#{pokemon.id}</Text>
-        <Text style={styles.type}>
-          {pokemon.types.map(capitalizeFirstLetter).join(" - ")}
-        </Text>
-      </View>
-    </View>
+    <Link href={`/pokemon/${pokemon.name}`} asChild>
+      <Pressable className="active:scale-90 active:opacity-70">
+        <View key={pokemon.id} style={styles.card}>
+          <View style={styles.imageContainer}>
+            <Image
+              resizeMode="contain"
+              source={{ uri: pokemon.sprite }}
+              style={styles.sprite}
+            />
+          </View>
+          <View style={styles.info}>
+            <Text style={styles.title}>{capitalizeFirstLetter(pokemon.name)}</Text>
+            <Text style={styles.id}>#{pokemon.id}</Text>
+            <Text style={styles.type}>
+              {pokemon.types.map(capitalizeFirstLetter).join(" - ")}
+            </Text>
+          </View>
+        </View>
+      </Pressable>
+    </Link>
   );
 }
 
-export function AnimatedCard({ pokemon, index }) {
+export function AnimatedCard({ pokemon, index }: { pokemon: Pokemon; index: number }) {
   const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
