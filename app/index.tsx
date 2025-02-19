@@ -12,7 +12,7 @@ export default function Page() {
       </View>
 
       <View className="w-full bg-gray-400">
-        <Link className="text-center text-white font-bold" href=" /about">About</Link>
+        <Link className="text-center text-white font-bold p-1" href=" /about">About</Link>
       </View>
     </View >
   );
