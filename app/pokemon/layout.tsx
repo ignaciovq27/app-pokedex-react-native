@@ -5,7 +5,7 @@ interface PokemonLayoutProps {
     children: React.ReactNode;
 }
 
-const PokemonLayout: React.FC<PokemonLayoutProps> = ({ children }) => {
+const PokemonLayout = ({ children }: PokemonLayoutProps) => {
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Detalles del Pokémon</Text>

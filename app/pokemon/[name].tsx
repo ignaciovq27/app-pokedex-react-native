@@ -1,10 +1,12 @@
 import React from 'react'
 import { Pressable, View } from 'react-native'
 import { StyleSheet, Text } from 'react-native'
-import { Link } from 'expo-router'
+import { Link, Stack } from 'expo-router'
+import Screen from 'components/Screen'
 import { HomeIcon } from 'components/Icons'
 
 import { useLocalSearchParams } from 'expo-router'
+import { Logo } from 'components/Logo'
 
 export default function PokemonDetail() {
 
@@ -20,25 +22,25 @@ export default function PokemonDetail() {
 
 
     return (
-        <>
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerShown: true,
+                    headerTintColor: "#fff",
+                    headerStyle: {
+                        backgroundColor: "#ef4444",
+                    },
+
+                    headerTitle: capitalizeFirstLetter(Array.isArray(name) ? name.join(", ") : name),
+                }}
+            />
             <View className="flex-1" style={styles.container}>
                 <View>
                     <Text className="text-blue-500 px-2 text-center">Detalles de {capitalizeFirstLetter(name)}</Text>
                 </View>
-
             </View>
-            <View className=" bg-gray-400 w-full">
-                <View className="items-center justify-center">
-                    <Link href="/" asChild className="w-28">
-                        <Pressable className="flex flex-row items-center justify-center gap-2 p-1 active:opacity-70">
-                            <Text className="text-center text-white font-bold ">Home</Text>
-                            <HomeIcon />
-                        </Pressable>
-                    </Link>
-                </View>
-            </View>
-        </>
-    )
+        </Screen>
+    );
 }
 
 const styles = StyleSheet.create({
